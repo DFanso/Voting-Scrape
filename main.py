@@ -94,7 +94,7 @@ def send_discord_webhook(top_4, other_percentage):
             name=f"**{party['party_name']}** - {party['candidate']}",
             value=(
                 f"🗳 **Votes:** {party['votes']:,}\n"  # Formatting votes with commas
-                f"{progress_bar} **{party['percentage']}%**"
+                f"📊 {progress_bar} **{party['percentage']}%**"
             ),
             inline=False
         )
@@ -103,7 +103,7 @@ def send_discord_webhook(top_4, other_percentage):
     others_progress_bar = '▓' * int(other_percentage // 10) + '░' * (10 - int(other_percentage // 10))  # Progress bar for Others
     embed.add_embed_field(
         name=f"**Other Parties**",
-        value=f"📊 **Percentage:** {other_percentage:.2f}%\n{others_progress_bar} **{other_percentage:.2f}%**",
+        value=f"{others_progress_bar} **{other_percentage:.2f}%**",
         inline=False
     )
 
