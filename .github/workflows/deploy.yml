@@ -40,6 +40,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         script: |
           docker pull ${{ env.DOCKER_HUB_REPO }}:latest
-          docker stop voting|| true
-          docker rm my-app || true
+          docker stop voting || true
+          docker rm voting || true
           docker run -d --name voting ${{ env.DOCKER_HUB_REPO }}:latest
