@@ -39,6 +39,8 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
+          sudo apt install docker 
+          sudo apt install docker.io
           docker pull ${{ env.DOCKER_HUB_REPO }}:latest
           docker stop voting|| true
           docker rm my-app || true
