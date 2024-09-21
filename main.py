@@ -94,7 +94,7 @@ def send_discord_webhook(top_4, other_percentage):
             name=f"**{party['party_name']}** - {party['candidate']}",
             value=(
                 f"🗳 **Votes:** {party['votes']:,}\n"  # Formatting votes with commas
-                f"📊 {progress_bar} **{party['percentage']}%**"
+                f"📊 {progress_bar} **{party['percentage']}%**\n"
                 f"───────────────────────────"
             ),
             inline=False
