@@ -116,7 +116,7 @@ def send_discord_webhook(top_4, other_percentage):
     webhook.execute()
 
 # Schedule the scraping function to run every 5 minutes
-schedule.every(5).seconds.do(scrape_election_results)
+schedule.every(20).seconds.do(scrape_election_results)
 
 # Keep the script running
 while True:
