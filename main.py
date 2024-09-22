@@ -57,23 +57,23 @@ def scrape_election_results():
             'percentage': percentage
         })
 
-    # Sort parties by percentage in descending order
+   # Sort parties by percentage in descending order
     all_parties_sorted = sorted(all_parties, key=lambda x: x['percentage'], reverse=True)
 
-    # Separate the top 4 and the rest
-    top_4 = all_parties_sorted[:4]
-    others = all_parties_sorted[4:]
+    # Separate the top 5 and the rest
+    top_5 = all_parties_sorted[:5]
+    others = all_parties_sorted[5:]
 
     # Calculate the total percentage for "Other" parties
     other_percentage = sum([party['percentage'] for party in others])
 
     # Prepare current results including "Others"
-    current_results = top_4 + [{'party_name': 'Others', 'percentage': other_percentage}]
+    current_results = top_5 + [{'party_name': 'Others', 'percentage': other_percentage}]
 
     # Check if results have changed
     if previous_results != current_results:
         # Send results to Discord webhook
-        send_discord_webhook(top_4, other_percentage)
+        send_discord_webhook(top_5, other_percentage)
         # Update previous results
         previous_results = current_results
 
